@@ -1,0 +1,20 @@
+canvas {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+h1 {
+    color: red;
+    font-size: 100px;
+    text-align: center;
+    text-shadow: 3px 3px blueviolet;
+    font-weight: 1000;
+    font-style: oblique;
+}
+
+p {
+    text-align: center;
+    color: lawngreen;
+}
