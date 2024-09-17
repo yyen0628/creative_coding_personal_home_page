@@ -8,24 +8,19 @@ function preload() {
 
 function setup() {
   createCanvas(800, 800);
-  
   //frameRate(10);
   pixelDensity(2);
   f = new Face();
 }
 
 function draw() {
-  background(220);
+  background(0);
   f.display();
 
   if(mouseIsPressed) {
     f.move();
   }
 }
-
-// function mouseDragged() {
-//   f.move();
-// }
 
 class Face {
   //properties

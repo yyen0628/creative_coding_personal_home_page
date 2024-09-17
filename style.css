@@ -19,8 +19,18 @@ p {
     color: lawngreen;
 }
 
-nav {
+.face {
+    width: 70%;
     background-color: wheat;
+    padding: 2rem;
+    max-width: 150px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.rw {
+    width: 30%;
+    background-color: burlywood;
     padding: 2rem;
     max-width: 150px;
     font-size: 20px;
