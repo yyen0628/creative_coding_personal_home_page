@@ -73,7 +73,7 @@ class Particle {
       
       if(this.pos.y < 0 || this.pos.y > height) {
         this.vel.y *= -1;
-        particles.length --;
+        particles.length--;
       }
   }
 }
