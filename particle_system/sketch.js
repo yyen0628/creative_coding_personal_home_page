@@ -19,9 +19,15 @@ function draw() {
     p.update();
     p.show();
 
+    if(p.alive == false) {
+        particles.splice(i, 1);
+    }
+
     if(particles.length <= 0) {
         particles.push(new Particle());
     }
+
+    
   }
   console.log(particles.length);
 }
@@ -37,8 +43,9 @@ class Particle {
     this.age = 500;
     this.c = 1;
     this.vel = createVector(random(-5, 5), random(-3, 3));
-    this.accel = createVector(random(-0.05, 0.05), random(-0.03, 0.03));
-    this.size = random(30, 50)
+    this.accel = createVector(random(-0.06, 0.06), random(-0.02, 0.02));
+    this.size = random(30, 50);
+    this.alive = true;
   }
   
   update() {
@@ -51,9 +58,6 @@ class Particle {
     if(this.age < 0 || this.age >= 500) {
         this.c *= -1
     }
-    this.colorR = map(this.pos.x, width, 0, 255, 0);
-    this.colorG = map(this.pos.y, height, 0, 255, 0);
-    this.colorB = this.vel.x * 50;
     this.color = map(this.age, 500, 0, 255, 10);
   }
   
@@ -65,16 +69,34 @@ class Particle {
   }
   
   checkWalls() {
-    if(this.pos.x < 0 || this.pos.x > width) {
-        this.vel.x *= -1;
-        particles.push(new Particle());
-      }
+    // check top wall
+    if(this.pos.y < this.size/2) {
+      this.vel.y *= -1; // reverse the y direction (if it's negative, it becomes positive, and vice versa)
+      this.pos.y = this.size/2;
+      this.alive = false;
+    }
+    
+    // check bottom wall
+    if(this.pos.y > height - this.size/2) {
       
-      
-      if(this.pos.y < 0 || this.pos.y > height) {
-        this.vel.y *= -1;
-        particles.length--;
-      }
+      this.vel.y *= -1;
+      this.pos.y = height - this.size/2;
+      this.alive = false;
+    }
+    
+    // check left wall
+    if(this.pos.x < this.size/2) {
+      this.vel.x *= -1;
+      this.pos.x = this.size/2;
+      particles.push(new Particle());
+    }
+    
+    // check right wall
+    if(this.pos.x > width - this.size/2) {
+      this.vel.x *= -1;
+      this.pos.x = width - this.size/2;
+      particles.push(new Particle());
+    }
   }
 }
 
