@@ -19,17 +19,30 @@ function draw() {
     p.update();
     p.show();
 
-    if(p.alive == false) {
-        particles.splice(i, 1);
-    }
+    // if(p.alive == false) {
+    //     particles.splice(i, 1);
+    // }
 
     if(particles.length <= 0) {
         particles.push(new Particle());
     }
 
+    for(let j = 0; j < particles.length; j++) {
+      
+      let p2 = particles[j]
+      
+      let distance = p5.Vector.dist(p.pos, p2.pos);
+    
+      // should i draw a connecting line
+      if(distance < 200 && p.pos != p2.pos) {
+        
+        let alpha = map(distance, 100, 0, 0, 255)
+        stroke(255, alpha);
+        line(p.pos.x, p.pos.y, p2.pos.x, p2.pos.y)
+      }
+    }
     
   }
-  console.log(particles.length);
 }
 
 function windowResized() {
@@ -44,7 +57,7 @@ class Particle {
     this.c = 1;
     this.vel = createVector(random(-5, 5), random(-3, 3));
     this.accel = createVector(random(-0.06, 0.06), random(-0.02, 0.02));
-    this.size = random(30, 50);
+    this.size = random(5, 10);
     this.alive = true;
   }
   

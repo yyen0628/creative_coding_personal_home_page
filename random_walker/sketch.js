@@ -4,7 +4,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
   pixelDensity(2);
   background(0);
-  //frameRate(10);
+  frameRate(10);
 
   
 }
@@ -72,6 +72,9 @@ class Walker {
         this.speed = random(8, 12);
         this.age = 1000;
         this.alive = true;
+        this.r = 100;
+        this.g = 100;
+        this.b = 100;
     }
   
     show() {
@@ -87,10 +90,11 @@ class Walker {
         // pop();
 
         // strokeWeight(0.05);
+        // stroke(this.r, this.g, this.b);
         // line(this.fx, this.fy, this.fz, this.preX, this.preY, this.preZ);
         // line(this.x, this.y, this.z, this.fx, this.fy, this.fz);
 
-        stroke(255)
+        stroke(this.r, this.g, this.b);
         strokeWeight(0.5);
         line(this.x, this.y, this.z, this.preX, this.preY, this.preZ)
         pop();
@@ -109,6 +113,10 @@ class Walker {
         this.y += ry;
         this.z += rz;
 
+        this.r += random(-10, 10);
+        this.g += random(-10, 10);
+        this.b += random(-10, 10);
+
         // this.age --;
         // if(this.age < 0) {
         //     this.alive = false;
@@ -119,21 +127,6 @@ class Walker {
         // }else if(this.y < 0 || this.y > height) {
         //     this.y = fy;
         //}
-
-    //   const choice = floor(random(4));
-    //   if (choice == 0) {
-    //     this.x += 5;
-    //     this.size += 0.05;
-    //   } else if (choice == 1) {
-    //     this.x -= 5
-    //     this.size -= 0.05;
-    //   } else if (choice == 2) {
-    //     this.y += 5;
-    //     this.size += 0.05;
-    //   } else {
-    //     this.y -= 5;
-    //     this.size -= 0.05;
-    //   }
     }
   }
   
