@@ -34,6 +34,9 @@ function setup() {
   centerX = width / 2;
   centerY = height / 2
   
+
+
+  // molds = [];
   for (let i = 0; i < num; i++) {
     let angle = random(360);
     let radius = random(circleRadius);
@@ -133,6 +136,19 @@ function draw() {
       m3.follow(ff3);
       m3.runPerlin()
     }
+  }
+
+  if(frameCount % 100 == 0) {
+    molds = [];
+  for (let i = 0; i < num; i++) {
+    let angle = random(360);
+    let radius = random(circleRadius);
+    let x = centerX + cos(angle);
+    let y = centerY + sin(angle);
+    
+    let m = new Mold(x, y, angle);
+    molds.push(m);
+  }
   }
   
 }

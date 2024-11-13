@@ -11,7 +11,7 @@ function setup() {
 
 function draw() {
     
-    orbitControl();
+    //orbitControl();
     //sdrawAxes(200);
 
     for(let i = 0; i < walkers.length; i++){
@@ -69,7 +69,7 @@ class Walker {
         this.preY = this.y;
         this.preZ = this.z;
         this.size = 1;
-        this.speed = random(8, 12);
+        this.speed = random(5, 7);
         this.age = 1000;
         this.alive = true;
         this.r = 100;

@@ -4,6 +4,7 @@ var y = 0;
 var speed = 1;
 let rt;
 let h1;
+let clr;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
@@ -11,11 +12,13 @@ function setup() {
 
     textFont("Courier New", 25);
     h1 = select('#header');
+
+    clr = color(124, 252, 0)
 }
 
 function draw() {
     //textAlign(CENTER);
-    fill(124, 252, 0);
+    fill(clr);
     textSize(random(12, 15));
     
     texts.push("Creative Coding!!");
