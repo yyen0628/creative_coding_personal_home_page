@@ -52,10 +52,8 @@ function windowResized() {
 function mousePressed() {
     let r = random(180, 255);
     let g = random(120, 200);
-    let b = random(100, 150);
+    let b = random(10, 60);
 
-    fill(r, g, b);
-    rt = random(texts);
-    text(rt, x, y);
+    clr = color(r, g, b)
 }
 
