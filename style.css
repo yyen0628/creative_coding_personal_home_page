@@ -84,3 +84,13 @@ p {
     margin-left: auto;
     margin-right: auto;
 }
+.GradShow {
+    width: 30%;
+    background-color:whitesmoke;
+    padding: 2rem;
+    max-width: 150px;
+    font-size: 20px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
