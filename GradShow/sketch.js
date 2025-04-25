@@ -1,5 +1,5 @@
 let serial;
-let portName = "/dev/tty.usbmodem101"; // Change for your system (Check in p5.serialcontrol)
+let portName = "/dev/tty.usbmodem14401"; // Change for your system (Check in p5.serialcontrol)
 let clicks = []; // Stores click positions
 let votes = [0, 0, 0, 0]; // Voting for 4 quadrants
 let votingActive = true;
