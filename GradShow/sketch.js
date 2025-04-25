@@ -259,6 +259,12 @@ function resetVoting() {
 
 function sendToArduino(index) {
   if (serial) {
-    serial.write(index.toString() + "\n");
+    let ledStates = [1, 1, 1, 1]; // 所有燈預設開啟
+    if (index !== -1) {
+      ledStates[index] = 0; // 關閉得票最多的燈
+    }
+    let message = ledStates.join('') + "\n"; // 例如 "0111"
+    serial.write(message);
+    console.log("Sending to Arduino:", message);
   }
 }
