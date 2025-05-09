@@ -4,8 +4,8 @@ let clicks = []; // Stores click positions
 let votes = [0, 0, 0, 0]; // Voting for 4 quadrants
 let votingActive = true;
 let startTime;
-let voteDuration = 10 * 1000; // 10 minutes
-let ledDuration = 10 * 1000; // 1 minute LED duration
+let voteDuration = 20 * 60 * 1000; // 10 minutes
+let ledDuration = 20 * 60 * 1000; // 1 minute LED duration
 let mostVoted = -1;
 let ledOn = false;
 let ledStartTime = 0;
@@ -120,6 +120,9 @@ function draw() {
 
     if (alpha <= 0) {
       fadingEllipses.splice(i, 1); // remove once faded
+      erase();
+      ellipse(e.x, e.y, 6);
+      noErase();
     } else {
       noStroke();
       fill(fillValue, alpha);
