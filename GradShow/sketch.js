@@ -24,8 +24,8 @@ class slimeWalker {
     this.target = createVector(targetX, targetY);
     this.prePos = this.curPos;
     //this.vel = createVector(random(-1, 1), random(-1, 1))
-    this.randomness = 1.5;
-    this.speed = 0.5; // 控制移動速度
+    this.randomness = 1.6;
+    this.speed = 0.3; // 控制移動速度
     this.c = color(160, 124, 30);
     this.moving = false;
   }
@@ -129,7 +129,7 @@ function draw() {
 
       //console.log(alpha)
       //console.log(e.color)
-      ellipse(e.x, e.y, 10); // glowing dot size
+      ellipse(e.x, e.y, 5); // glowing dot size
     }
   }
 
